@@ -1,0 +1,22 @@
+<view class="page">
+  <view class="page__bd">
+    <view class="weui-panel weui-panel_access">
+      <view class="weui-panel__bd" wx:for="{{list}}" wx:key="id" wx:for-index="idx" wx:for-item="t">
+        <navigator url="../taskdetails/details?workId={{t.workId}}&taskName={{t.taskName}}&fromSite={{t.fromSite}}&toSite={{t.toSite}}&planStartTime={{t.planStartTime}}&planEndTime={{t.planEndTime}}&signInSite={{t.signInSite}}&signInTime={{t.signInTime}}&signOutSite={{t.signOutSite}}&signOutTime={{t.signOutTime}}&signInImage={{t.signInImage}}&signOutImage={{t.signOutImage}}&signOutInfo={{t.signOutInfo}}"
+          class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+          <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+            <view class="weui-media-box__title">{{t.taskName}}</view>
+            <view class="weui-media-box__desc">目的地：{{t.toSite}}</view>
+            <view class="weui-media-box__desc">计划完成时间：{{t.planEndTime}}</view>
+          </view>
+          <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+        </navigator>
+      </view>
+    </view>
+    <block wx:if="{{isBottom}}">
+      <view class="weui-loadmore weui-loadmore_line">
+        <view class="weui-loadmore__tips weui-loadmore__tips_in-line" style="background:#F8F8F8">暂无数据</view>
+      </view>
+    </block>
+  </view>
+</view>

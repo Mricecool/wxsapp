@@ -1,0 +1,15 @@
+/* pages/userinfo/userinfo.wxss */
+
+.userinfo-top{
+  width: 100%;
+  box-sizing: border-box;
+  top: 0;
+  left: 0;
+  padding:0;
+}
+.userinfo-top image{
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 180px;
+}

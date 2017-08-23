@@ -1,0 +1,78 @@
+<view class="page">
+  <view class="page__bd">
+    <form bindsubmit="formSubmit">
+      <view class="weui-cells weui-cells_after-title mat15">
+        <view class="weui-cell">
+          <view class=" weui-cell__hd"><view class="weui-label">任务名称</view></view>
+          <view class="weui-cell__ft">{{taskName}}</view>
+        </view>
+        <view class="weui-cell">
+          <view class="weui-cell__hd"><view class="weui-label">始发地</view></view>
+          <view class="weui-cell__ft">{{fromSite}}</view>
+        </view>
+        <view class="weui-cell">
+          <view class=" weui-cell__hd"><view class="weui-label">目的地</view></view>
+          <view class="weui-cell__ft">{{toSite}}</view>
+        </view>
+        <view class="weui-cell">
+          <view class="weui-cell__hd"><view class="weui-label">计划开始时间</view></view>
+          <view class="weui-cell__ft">{{planStartTime}}</view>
+        </view>
+        <view class="weui-cell">
+          <view class=" weui-cell__hd"><view class="weui-label">计划完成时间</view></view>
+          <view class="weui-cell__ft">{{planEndTime}}</view>
+        </view>
+        <view class="weui-cell" style="-webkit-box-align:flex-start;-webkit-align-items:flex-start;align-items:flex-start;">
+          <view class="weui-cell__hd">
+            <view class="weui-label">当前位置</view>
+          </view>
+          <view class="weui-cell__bd">
+             <textarea class="weui-textarea" style="height: 3em;color:#999" name="position" value="{{position}}" disabled/>
+          </view>         
+        </view>  
+        <view class="weui-cell" style="-webkit-box-align:flex-start;-webkit-align-items:flex-start;align-items:flex-start;">
+          <view class="weui-cell__hd">
+            <view class="weui-label">签退信息</view>
+          </view>
+          <view class="weui-cell__bd">
+            <textarea style="padding:5px" class="weui-textarea" style="height: 5em" name="signoutinfo" maxlength='100' value="{{signoutinfo}}"/>
+          </view>
+        </view>
+        <view class="weui-cell">
+          <view class="weui-cell__bd">
+            <view class="weui-uploader">
+              <view class="weui-uploader__hd">
+                <view class="weui-uploader__title">图片上传</view>
+                <view class="weui-uploader__info">{{files.length}}/1</view>
+              </view>
+              <view class="weui-uploader__bd">
+                <view class="weui-uploader__files" id="uploaderFiles">
+                  <block wx:for="{{files}}" wx:key="*this">
+                    <view class="weui-uploader__file" bindtap="previewImage" id="{{item}}">
+                      <image class="weui-uploader__img" src="{{item}}" mode="aspectFill" />
+                    </view>
+                  </block>
+                </view>
+                <view class="weui-uploader__input-box">
+                  <view class="weui-uploader__input" bindtap="chooseImage"></view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="tip">{{tip}}</view>
+      <view class="weui-btn-area">
+        <view class="area50">
+          <button class="btn-line" type="primary" plain="true" bindtap="checkLocation">查看当前位置</button>
+        </view>
+        <view class="area50">
+          <button class="btn-line" type="primary" plain="true" bindtap="refreshLocation">刷新位置</button>
+        </view>
+      </view>
+      <view class="weui-btn-area">
+        <button class="weui-btn" id="SignIn" type="primary" style="background-color:#2dbb55;" formType="submit">签 退</button>
+      </view>
+    </form>
+  </view>
+</view>

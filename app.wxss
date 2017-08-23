@@ -1,0 +1,82 @@
+/**app.wxss**/
+@import "style/weui.wxss";
+page{
+    background-color: #F8F8F8;
+    font-size: 16px;
+    font-family: -apple-system-font,Helvetica Neue,Helvetica,sans-serif;
+}
+.page__hd {
+    padding: 40px;
+}
+.page__bd {
+    padding-bottom: 40px;
+}
+.page__bd_spacing {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.page__ft{
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+.page__title {
+    text-align: left;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.page__desc {
+    margin-top: 5px;
+    color: #888888;
+    text-align: left;
+    font-size: 14px;
+}
+.area50{
+  width: 50%;
+  box-sizing: border-box;
+  display: inline-block;
+  padding: 0 10px 0 0;
+}
+.area50:last-child{
+  padding: 0;
+}
+.f14{
+  font-size: 14px;
+}
+.red{
+  color:#e64340;
+}
+.green{
+  color: #3eb034;
+}
+.mat15{
+  margin-top: 15px;
+}
+.mat45{
+  margin-top: 45px;
+}
+.mat130{
+  margin-top: 130px;
+}
+.mat140{
+  margin-top: 140px;
+}
+.mab65{
+  margin-bottom: 20px;
+}
+
+
+
+.btn-line{
+  font-size: 15px;
+}
+
+.tip{
+  height: 20px;
+  font-size: 12px;
+  padding-top: 15px;
+  padding-left: 15px;
+  color: #ff0033
+}

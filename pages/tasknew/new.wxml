@@ -1,0 +1,104 @@
+<view class="page" xmlns:wx="http://www.w3.org/1999/xhtml">
+  <view class="page__bd">
+    <form bindsubmit="formSubmit">
+      <view class="weui-cells weui-cells_after-title mat15">
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">任务名称</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" name="taskname" placeholder="请填写任务名称" />
+          </view>
+        </view>
+      </view>
+      <view class="weui-cells weui-cells_after-title mat15">
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">始发地</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" name="fromsite" placeholder="请填写始发地" />
+          </view>
+        </view>
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">目的地</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" name="tosite" placeholder="请填写目的地" />
+          </view>
+        </view>
+      </view>
+      <view class="weui-cells weui-cells_after-title mat15">
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">计划开始时间</view>
+          </view>
+          <view class="weui-cell__bd">
+            <picker mode="date" name="planstarttime" value="{{startdate}}" start="2017-01-01" bindchange="bindStartDateChange">
+              <view class="weui-input">{{startdate}}</view>
+            </picker>
+          </view>
+        </view>
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">计划完成时间</view>
+          </view>
+          <view class="weui-cell__bd">
+            <picker mode="date" name="planendtime" value="{{enddate}}" start="2015-09-01" bindchange="bindEndDateChange">
+              <view class="weui-input">{{enddate}}</view>
+            </picker>
+          </view>
+        </view>
+      </view>
+      <view class="weui-cells weui-cells_after-title mat15">
+        <view class="weui-cell" style="-webkit-box-align:flex-start;-webkit-align-items:flex-start;align-items:flex-start;">
+          <view class="weui-cell__hd">
+            <view class="weui-label">当前位置</view>
+          </view>
+          <view class="weui-cell__bd">
+             <textarea class="weui-textarea" style="height: 3em;color:#999" name="position" value="{{position}}" disabled/>
+          </view>         
+        </view>     
+      </view>
+      <view class="weui-cells weui-cells_after-title mat15">
+        <view class="weui-cell">
+          <view class="weui-cell__bd">
+            <view class="weui-uploader">
+              <view class="weui-uploader__hd">
+                <view class="weui-uploader__title">图片上传</view>
+                <view class="weui-uploader__info">{{files.length}}/1</view>
+              </view>
+              <view class="weui-uploader__bd">
+                <view class="weui-uploader__files" id="uploaderFiles">
+                  <block wx:for="{{files}}" wx:key="*this">
+                    <view class="weui-uploader__file" bindtap="previewImage" id="{{item}}">
+                      <image class="weui-uploader__img" src="{{item}}" mode="aspectFill" />
+                    </view>
+                  </block>
+                </view>
+                <view class="weui-uploader__input-box">
+                  <view class="weui-uploader__input" bindtap="chooseImage"></view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="tip">{{tip}}</view>
+
+      <view class="weui-btn-area">
+        <view class="area50">
+          <button class="btn-line" type="primary" bindtap="checkLocation" plain="true">查看当前位置</button>
+        </view>
+        <view class="area50">
+          <button class="btn-line" type="primary" bindtap="refreshLocation" plain="true">刷新位置</button>
+        </view>
+      </view>
+      <view class="weui-btn-area">
+        <button class="weui-btn" id="SaveAndSign" type="primary" style="background-color:#2dbb55;" formType="submit">保存并签到</button>
+        <button class="weui-btn" id="SaveOnly" type="default" formType="submit">保 存</button>
+      </view>
+    </form>
+  </view>
+</view>

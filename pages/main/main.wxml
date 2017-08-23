@@ -1,0 +1,57 @@
+<view class="page">
+  <view class="page__hd userinfo-top">
+    <image src="/images/userinfo-bg.png"></image>
+    <view class="user-text">
+      <view class="page__title">您好，{{realName}}</view>
+      <view class="page__desc">工号：{{workNo}}</view>
+      <view class="page__desc">所属部门：{{department}}</view>
+    </view>
+  </view>
+  <view class="page__bd mat140 mab65">
+    <view class="weui-panel weui-panel_access">
+
+      <view class="weui-panel__bd">
+        <view wx:for="{{list}}" wx:key="id" wx:for-index="idx" wx:for-item="t">
+          <block wx:if="{{t.state==0}}">
+            <navigator url="../tasksignin/signin?workId={{t.workId}}&taskName={{t.taskName}}&fromSite={{t.fromSite}}&toSite={{t.toSite}}&planStartTime={{t.planStartTime}}&planEndTime={{t.planEndTime}}" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+              <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                <view class="weui-media-box__title">{{t.taskName}}</view>
+                <view class="weui-media-box__desc">目的地：{{t.toSite}}</view>
+                <view class="weui-media-box__desc">计划完成时间：{{t.planEndTime}}</view>
+              </view>
+              <view class="weui-cell__ft weui-cell__ft_in-access">
+                <view class="green f14">待签到</view>
+              </view>
+            </navigator>
+          </block>
+          <block wx:elif="{{t.state==1}}">
+            <navigator url="../tasksignout/signout?workId={{t.workId}}&taskName={{t.taskName}}&fromSite={{t.fromSite}}&toSite={{t.toSite}}&planStartTime={{t.planStartTime}}&planEndTime={{t.planEndTime}}" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+              <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                <view class="weui-media-box__title">{{t.taskName}}</view>
+                <view class="weui-media-box__desc">目的地：{{t.toSite}}</view>
+                <view class="weui-media-box__desc">计划完成时间：{{t.planEndTime}}</view>
+              </view>
+              <view class="weui-cell__ft weui-cell__ft_in-access">
+                <view class="red f14">待签退</view>
+              </view>
+            </navigator>
+          </block>
+        </view>
+      </view>
+    </view>
+    <block wx:if="{{listEmpty}}">
+      <view class="weui-loadmore weui-loadmore_line">
+        <view class="weui-loadmore__tips weui-loadmore__tips_in-line" style="background:#F8F8F8">暂无任务信息</view>
+      </view>
+    </block>
+  </view>
+  <view class="userinfo-bottom">
+    <view class="userinfo-left">
+      <button class="userinfo-btn userinfo-btn-ls" type="primary" bindtap="historyTask">历史任务</button>
+    </view>
+    <view class="userinfo-right">
+      <button class="userinfo-btn userinfo-btn-xj" type="primary" bindtap="createTask">新建任务</button>
+    </view>
+
+  </view>
+</view>

@@ -1,0 +1,19 @@
+{
+  "pages": [
+    "pages/login/login",
+    "pages/index/index",
+    "pages/main/main",
+    "pages/tasksignin/signin",
+    "pages/tasksignout/signout",
+    "pages/tasknew/new",
+    "pages/taskhistory/history",
+    "pages/taskdetails/details",
+    "pages/logs/logs"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#37373a",
+    "navigationBarTitleText": "小程序",
+    "navigationBarTextStyle": "#fff"
+  }
+}

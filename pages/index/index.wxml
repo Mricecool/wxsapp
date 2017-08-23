@@ -1,0 +1,15 @@
+<view class="page">
+  <view class="page__hd userinfo-top">
+    <image src="/images/userinfo-bg.png"></image>
+  </view>
+  <view class="page__bd">
+        <view class="weui-grids" style="border-left:0">
+            <block wx:for="{{grids}}" wx:key="*this" wx:for-item="g">
+                <navigator url="{{g.url}}" class="weui-grid" style="border-right:0;border-bottom:0" hover-class="weui-grid_active">
+                    <image class="weui-grid__icon" style="height:60px;width:70px" src="{{g.img}}" />
+                    <view class="weui-grid__label" style="font-size:12px;margin-top:10px"><text>{{g.text}}</text></view>
+                </navigator>
+            </block>
+        </view>
+    </view>
+</view>

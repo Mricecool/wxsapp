@@ -1,0 +1,87 @@
+<view class="page">
+  <view class="page__bd">
+    <view class="weui-cells weui-cells_after-title  mat15">
+
+      <view class="weui-cell">
+        <view class="weui-cell__hd"><view class="weui-label">任务名称</view></view>
+        <view class="weui-cell__ft">{{taskName}}</view>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__hd"><view class="weui-label">始发地</view></view>
+        <view class="weui-cell__ft">{{fromSite}}</view>
+      </view>
+
+      <view class="weui-cell">
+        <view class="weui-cell__hd"><view class="weui-label">目的地</view></view>
+        <view class="weui-cell__ft">{{toSite}}</view>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__hd"><view class="weui-label">计划开始时间</view></view>
+        <view class="weui-cell__ft">{{planStartTime}}</view>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__hd"><view class="weui-label">计划完成时间</view></view>
+        <view class="weui-cell__ft">{{planEndTime}}</view>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__hd"><view class="weui-label">签到地点</view></view>
+        <view class="weui-cell__ft">{{signInSite}}</view>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__hd"><view class="weui-label">签到时间</view></view>
+        <view class="weui-cell__ft">{{signInTime}}</view>
+      </view>
+
+      <view class="weui-cell">
+        <view class="weui-cell__bd">
+          <view class="weui-uploader">
+            <view class="weui-uploader__hd">
+              <view class="weui-uploader__title">签到图片</view>
+            </view>
+            <view class="weui-uploader__bd">
+              <view class="weui-uploader__files" id="uploaderFiles">
+                <block wx:for="{{signInFiles}}" wx:key="*this">
+                  <view class="weui-uploader__file" bindtap="previewImage" id="{{item}}">
+                    <image class="weui-uploader__img" src="{{item}}" mode="aspectFill" />
+                  </view>
+                </block>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__hd"><view class="weui-label">签退地点</view></view>
+        <view class="weui-cell__ft">{{signOutSite}}</view>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__hd"><view class="weui-label">签退时间</view></view>
+        <view class="weui-cell__ft">{{signOutTime}}</view>
+      </view>
+      <view class="weui-cell" style="-webkit-box-align:flex-start;-webkit-align-items:flex-start;align-items:flex-start;">
+        <view class="weui-cell__hd"><view class="weui-label">签退信息</view></view>
+        
+          <view class="weui-cell__bd" style="color:#999;">{{signOutInfo}}</view>
+        
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__bd">
+          <view class="weui-uploader">
+            <view class="weui-uploader__hd">
+              <view class="weui-uploader__title">签退图片</view>
+            </view>
+            <view class="weui-uploader__bd">
+              <view class="weui-uploader__files" id="uploaderFiles">
+                <block wx:for="{{signOutFiles}}" wx:key="*this">
+                  <view class="weui-uploader__file" bindtap="previewImage2" id="{{item}}">
+                    <image class="weui-uploader__img" src="{{item}}" mode="aspectFill" />
+                  </view>
+                </block>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
